@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Como Sair das Dívidas — Liberdade Financeira MZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#070e08;
+      --bg2:#0a1309;
+      --panel:#0f1a10;
+      --line:#1a2e1b;
+      --green:#6aaa3f;
+      --green-lt:#8fd45f;
+      --green-dim:#2d5c1a;
+      --gold:#c9a24a;
+      --gold-lt:#e2c278;
+      --paper:#f0ebe0;
+      --paper-dim:#9a9080;
+      --ink:#e8e4d8;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.1;}
+    h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:900;}
+    h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;}
+    h3{font-size:1.15rem;font-weight:700;}
+    .green{color:var(--green-lt);}
+    .gold{color:var(--gold);}
+    .dim{color:var(--paper-dim);}
+    .container{max-width:900px;margin:0 auto;padding:0 24px;}
+    section{padding:90px 0;}
+    .rule{height:1px;background:var(--line);border:none;margin:0;}
+
+    /* NAV */
+    nav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(7,14,8,0.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+      padding:16px 24px;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--green-lt);}
+    .nav-cta{
+      background:var(--green);color:#fff;
+      font-size:0.8rem;font-weight:700;
+      padding:9px 20px;border-radius:3px;
+      text-decoration:none;letter-spacing:0.04em;
+      transition:background 0.2s;
+    }
+    .nav-cta:hover{background:var(--green-lt);}
+
+    /* HERO */
+    #hero{
+      min-height:100vh;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      gap:0;
+      padding:0;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-left{
+      padding:80px 56px 80px 48px;
+      position:relative;z-index:2;
+    }
+    .hero-right{
+      height:100vh;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-right img{
+      width:100%;height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+    .hero-right::after{
+      content:'';
+      position:absolute;inset:0;
+      background:linear-gradient(to right, var(--bg) 0%, transparent 40%);
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:0.72rem;font-weight:700;
+      letter-spacing:0.18em;text-transform:uppercase;
+      color:var(--green-lt);
+      margin-bottom:24px;
+    }
+    .eyebrow::before{content:'';width:20px;height:1px;background:var(--green-lt);}
+    #hero h1{color:var(--paper);margin-bottom:12px;}
+    #hero h1 em{color:var(--green-lt);font-style:normal;}
+    .hero-sub{font-size:1.05rem;color:var(--paper-dim);max-width:460px;margin-bottom:36px;line-height:1.8;}
+
+    .btn-main{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--green);color:#fff;
+      font-weight:700;font-size:1rem;
+      padding:18px 36px;border-radius:3px;
+      text-decoration:none;
+      transition:all 0.2s;
+      box-shadow:0 8px 32px rgba(106,170,63,0.3);
+    }
+    .btn-main:hover{background:var(--green-lt);transform:translateY(-2px);box-shadow:0 12px 40px rgba(106,170,63,0.4);}
+    .btn-main svg{flex-shrink:0;}
+
+    .hero-trust{
+      display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;
+      font-size:0.8rem;color:var(--paper-dim);
+    }
+    .hero-trust span{display:flex;align-items:center;gap:6px;}
+
+    /* STATS STRIP */
+    #stats{
+      background:var(--green);
+      padding:0;
+    }
+    .stats-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);
+    }
+    .stat-item{
+      padding:32px 24px;text-align:center;
+      border-right:1px solid rgba(255,255,255,0.15);
+    }
+    .stat-item:last-child{border-right:none;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:#fff;line-height:1;}
+    .stat-label{font-size:0.8rem;color:rgba(255,255,255,0.75);margin-top:4px;letter-spacing:0.04em;}
+
+    /* PAIN */
+    #pain{background:var(--bg2);}
+    .pain-intro{max-width:600px;margin-bottom:48px;}
+    .pain-intro h2{color:var(--paper);margin-bottom:16px;}
+    .pain-intro p{color:var(--paper-dim);}
+    .pain-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:2px;
+      background:var(--line);border:1px solid var(--line);
+    }
+    .pain-card{
+      background:var(--panel);
+      padding:28px 24px;
+      display:flex;gap:16px;align-items:flex-start;
+    }
+    .pain-icon{
+      width:36px;height:36px;flex-shrink:0;
+      background:var(--green-dim);border-radius:2px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1rem;
+    }
+    .pain-card h3{font-size:0.95rem;color:var(--paper);margin-bottom:6px;font-family:'Inter',sans-serif;}
+    .pain-card p{font-size:0.87rem;color:var(--paper-dim);}
+
+    /* STATEMENT */
+    #statement{
+      background:var(--bg);
+      padding:80px 0;
+      text-align:center;
+      position:relative;overflow:hidden;
+    }
+    #statement::before{
+      content:'';
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(106,170,63,0.06) 0%,transparent 70%);
+    }
+    #statement blockquote{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.4rem,3.5vw,2.2rem);
+      font-weight:700;
+      color:var(--paper);
+      max-width:680px;
+      margin:0 auto;
+      line-height:1.4;
+      position:relative;
+    }
+    #statement blockquote em{color:var(--green-lt);font-style:normal;}
+
+    /* METHOD */
+    #method{background:var(--bg2);}
+    .method-header{max-width:560px;margin-bottom:56px;}
+    .method-header h2{color:var(--paper);margin-bottom:14px;}
+    .method-header p{color:var(--paper-dim);}
+    .steps-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:2px;
+      background:var(--line);border:1px solid var(--line);
+    }
+    .step-card{
+      background:var(--panel);
+      padding:32px 28px;
+      position:relative;
+    }
+    .step-num{
+      font-family:'Playfair Display',serif;
+      font-size:3.5rem;font-weight:900;
+      color:var(--green-dim);
+      line-height:1;margin-bottom:12px;
+    }
+    .step-card h3{color:var(--paper);margin-bottom:8px;}
+    .step-card p{font-size:0.9rem;color:var(--paper-dim);}
+    .step-card::after{
+      content:'';
+      position:absolute;top:0;left:0;
+      width:3px;height:0;
+      background:var(--green);
+      transition:height 0.3s ease;
+    }
+    .step-card:hover::after{height:100%;}
+
+    /* CALCULATOR */
+    #calc{background:var(--bg);}
+    .calc-wrap{
+      display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+    }
+    .calc-left h2{color:var(--paper);margin-bottom:16px;}
+    .calc-left p{color:var(--paper-dim);margin-bottom:12px;}
+    .calc-left ul{list-style:none;margin-top:16px;}
+    .calc-left ul li{
+      color:var(--paper-dim);font-size:0.9rem;
+      padding:8px 0;border-bottom:1px solid var(--line);
+      display:flex;gap:10px;align-items:center;
+    }
+    .calc-left ul li::before{content:'→';color:var(--green-lt);}
+    .calc-box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:4px;overflow:hidden;
+    }
+    .calc-box-header{
+      background:var(--green);
+      padding:20px 24px;
+    }
+    .calc-box-header h3{color:#fff;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;}
+    .calc-box-body{padding:28px 24px;}
+    .calc-field{margin-bottom:20px;}
+    .calc-field label{display:block;font-size:0.8rem;color:var(--paper-dim);margin-bottom:8px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;}
+    .calc-field input{
+      width:100%;
+      background:var(--bg);
+      border:1px solid var(--line);
+      color:var(--paper);
+      padding:14px 16px;
+      border-radius:3px;
+      font-family:'Inter',sans-serif;
+      font-size:1rem;
+      transition:border-color 0.2s;
+    }
+    .calc-field input:focus{outline:none;border-color:var(--green);}
+    .calc-btn{
+      width:100%;
+      background:var(--green);color:#fff;
+      border:none;padding:15px;
+      border-radius:3px;
+      font-family:'Inter',sans-serif;
+      font-weight:700;font-size:0.95rem;
+      cursor:pointer;
+      transition:background 0.2s;
+    }
+    .calc-btn:hover{background:var(--green-lt);}
+    .calc-result{
+      display:none;
+      margin-top:20px;padding-top:20px;
+      border-top:1px solid var(--line);
+      text-align:center;
+    }
+    .calc-result-num{
+      font-family:'Playfair Display',serif;
+      font-size:3rem;font-weight:900;
+      color:var(--green-lt);
+    }
+    .calc-result-label{font-size:0.8rem;color:var(--paper-dim);margin-top:4px;text-transform:uppercase;letter-spacing:0.08em;}
+    .calc-result-msg{margin-top:14px;font-size:0.88rem;color:var(--ink);line-height:1.6;}
+
+    /* GUARANTEE */
+    #guarantee{
+      background:var(--bg2);
+      text-align:center;
+    }
+    .guarantee-box{
+      max-width:580px;margin:0 auto;
+      background:var(--panel);
+      border:1px solid var(--green-dim);
+      border-radius:4px;
+      padding:48px 40px;
+      position:relative;
+    }
+    .guarantee-icon{
+      width:64px;height:64px;
+      background:var(--green-dim);
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      margin:0 auto 24px;
+      font-size:1.8rem;
+    }
+    .guarantee-box h2{color:var(--paper);font-size:1.6rem;margin-bottom:14px;}
+    .guarantee-box p{color:var(--paper-dim);font-size:0.95rem;line-height:1.8;}
+
+    /* CTA FINAL */
+    #cta-final{
+      background:var(--bg);
+      position:relative;overflow:hidden;
+      text-align:center;
+      padding:120px 0;
+    }
+    #cta-final::before{
+      content:'';
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(106,170,63,0.08) 0%,transparent 70%);
+    }
+    #cta-final .eyebrow{justify-content:center;}
+    #cta-final h2{color:var(--paper);max-width:600px;margin:0 auto 20px;position:relative;}
+    #cta-final p{color:var(--paper-dim);max-width:500px;margin:0 auto 48px;position:relative;}
+    .price-display{
+      display:inline-flex;flex-direction:column;align-items:center;
+      margin-bottom:32px;position:relative;
+    }
+    .price-display .amount{
+      font-family:'Playfair Display',serif;
+      font-size:4rem;font-weight:900;
+      color:var(--green-lt);line-height:1;
+    }
+    .price-display .currency{font-size:1.4rem;color:var(--paper-dim);vertical-align:super;margin-right:4px;}
+    .price-display .label{font-size:0.8rem;color:var(--paper-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:6px;}
+    .cta-trust{
+      display:flex;gap:28px;justify-content:center;flex-wrap:wrap;
+      font-size:0.82rem;color:var(--paper-dim);margin-top:24px;
+      position:relative;
+    }
+    .cta-trust span{display:flex;align-items:center;gap:6px;}
+
+    /* BONUS */
+    #bonus{background:var(--bg2);}
+    .bonus-box{
+      display:flex;gap:24px;align-items:flex-start;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-left:4px solid var(--gold);
+      padding:28px 24px;
+      border-radius:0 4px 4px 0;
+    }
+    .bonus-icon{font-size:2rem;flex-shrink:0;}
+    .bonus-box h3{color:var(--gold);margin-bottom:8px;}
+    .bonus-box p{color:var(--paper-dim);font-size:0.92rem;}
+    .bonus-tag{
+      display:inline-block;
+      background:var(--gold);color:#0a0a08;
+      font-size:0.72rem;font-weight:700;
+      padding:3px 10px;border-radius:2px;
+      margin-top:10px;letter-spacing:0.06em;
+    }
+
+    /* FAQ */
+    #faq{background:var(--bg);}
+    .faq-item{padding:24px 0;border-bottom:1px solid var(--line);}
+    .faq-item:first-child{border-top:1px solid var(--line);}
+    .faq-item h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;color:var(--paper);margin-bottom:8px;}
+    .faq-item p{font-size:0.9rem;color:var(--paper-dim);}
+
+    /* WHATSAPP FLOAT */
+    .wa-float{
+      position:fixed;bottom:28px;right:28px;z-index:200;
+      background:#25D366;color:#fff;
+      width:58px;height:58px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;
+      box-shadow:0 6px 24px rgba(37,211,102,0.4);
+      transition:transform 0.2s;
+    }
+    .wa-float:hover{transform:scale(1.1);}
+
+    /* FOOTER */
+    footer{
+      background:var(--bg2);
+      border-top:1px solid var(--line);
+      padding:36px 24px;text-align:center;
+    }
+    footer p{font-size:0.8rem;color:var(--paper-dim);}
+    footer .brand{color:var(--green-lt);font-weight:600;}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      #hero{grid-template-columns:1fr;min-height:auto;}
+      .hero-left{padding:80px 24px 48px;}
+      .hero-right{height:320px;}
+      .hero-right::after{background:linear-gradient(to top,var(--bg) 0%,transparent 60%);}
+      .stats-grid{grid-template-columns:1fr;}
+      .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);}
+      .pain-grid{grid-template-columns:1fr;}
+      .steps-grid{grid-template-columns:1fr;}
+      .calc-wrap{grid-template-columns:1fr;}
+      section{padding:64px 0;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Liberdade Financeira MZ</span>
+  <a href="https://ratixpay.co.mz/checkout.html?produto=SEU-LINK-AQUI" target="_blank" class="nav-cta">Obter o Guia — 497 MZN</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Guia Prático · Edição Moçambique</div>
+    <h1>Chega de dívidas a <em>roubar</em> o seu sono</h1>
+    <p class="hero-sub">O guia prático com 6 etapas claras para organizar as suas finanças, negociar dívidas e construir um futuro estável — adaptado à realidade moçambicana.</p>
+    <a href="https://ratixpay.co.mz/checkout.html?produto=SEU-LINK-AQUI" target="_blank" class="btn-main" id="btn-hero">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 10L10 18M2 10H18" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      Quero sair das dívidas — 497 MZN
+    </a>
+    <div class="hero-trust">
+      <span>🔒 Pagamento seguro</span>
+      <span>📄 PDF imediato</span>
+      <span>🇲🇿 Feito para MZ</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="capa-dividas.png" alt="Como Sair das Dívidas — eBook"/>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Etapas práticas e sequenciais</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">30</div>
+      <div class="stat-label">Dias para ver os primeiros resultados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">497<span style="font-size:1.2rem"> MZN</span></div>
+      <div class="stat-label">Menos do que uma refeição fora</div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule"/>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="container">
+    <div class="pain-intro">
+      <div class="eyebrow">A Realidade</div>
+      <h2 style="color:var(--paper)">Isto soa familiar?</h2>
+      <p>Se reconhece alguma destas situações, este guia foi feito exactamente para si.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">💸</div>
+        <div>
+          <h3>O salário desaparece antes do fim do mês</h3>
+          <p>Entra numa semana e já está todo comprometido — sem conseguir perceber para onde foi.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📵</div>
+        <div>
+          <h3>O coração aperta quando o telefone toca</h3>
+          <p>Números desconhecidos, credores, cobranças — a ansiedade financeira está a afectar a sua vida.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔄</div>
+        <div>
+          <h3>Pede emprestado para pagar outra dívida</h3>
+          <p>E sabe, no fundo, que isso só está a empurrar o problema para a frente — sem resolver nada.</p>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😔</div>
+        <div>
+          <h3>Trabalha muito mas não chega a lado nenhum</h3>
+          <p>A sensação de correr numa esteira — muito esforço, pouco progresso real e visível.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- STATEMENT -->
+<section id="statement">
+  <div class="container">
+    <blockquote>
+      Estar endividado <em>não significa</em> que é mau com dinheiro.<br/>
+      Significa que ainda não teve <em>o sistema certo.</em>
+    </blockquote>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="container">
+    <div class="method-header">
+      <div class="eyebrow">O Método</div>
+      <h2 style="color:var(--paper)">6 etapas. Um caminho claro.</h2>
+      <p>Cada etapa constrói sobre a anterior. Sem saltos, sem teoria vaga — só o que precisa de fazer, na ordem certa.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Organize as suas finanças</h3>
+        <p>Mapeie tudo — o que entra, o que sai e o que deve. A clareza é o primeiro passo libertador.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Escolha a sua estratégia</h3>
+        <p>Bola de Neve ou Avalanche — dois métodos comprovados para atacar as dívidas com critério.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Corte sem sofrer</h3>
+        <p>Identifique o que é dispensável sem comprometer o essencial — pequenos cortes, grandes resultados.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Aumente a sua margem</h3>
+        <p>Formas práticas de gerar rendimento extra adaptadas à realidade moçambicana.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <h3>Negoceie com confiança</h3>
+        <p>Como falar com credores, pedir reduções e conseguir acordos reais — sem vergonha nem medo.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">06</div>
+        <h3>Construa o seu fundo de emergência</h3>
+        <p>O passo que garante que nunca mais volta ao mesmo ciclo, mesmo perante o imprevisto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- BONUS -->
+<section id="bonus">
+  <div class="container">
+    <div class="eyebrow">Bónus Incluído</div>
+    <h2 style="color:var(--paper);margin-bottom:32px;">O que recebe com o guia</h2>
+    <div class="bonus-box">
+      <div class="bonus-icon">📊</div>
+      <div>
+        <h3>Planilha de Controlo Financeiro</h3>
+        <p>Ferramenta prática para acompanhar as suas dívidas, despesas e progresso mês a mês. Preenche, acompanha, melhora.</p>
+        <span class="bonus-tag">BÓNUS GRATUITO — Valor: 200 MZN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- CALCULATOR -->
+<section id="calc">
+  <div class="container">
+    <div class="calc-wrap">
+      <div class="calc-left">
+        <div class="eyebrow">Ferramenta Gratuita</div>
+        <h2 style="color:var(--paper)">Quando vai estar livre de dívidas?</h2>
+        <p style="color:var(--paper-dim);margin-top:14px;">Calcule agora uma estimativa real do seu caminho para a liberdade financeira.</p>
+        <ul style="margin-top:24px;">
+          <li>Resultado imediato e personalizado</li>
+          <li>Baseado nos seus números reais</li>
+          <li>Mostra exactamente o que o guia vai acelerar</li>
+        </ul>
+      </div>
+      <div class="calc-box">
+        <div class="calc-box-header">
+          <h3>Calculadora de Liberdade Financeira</h3>
+        </div>
+        <div class="calc-box-body">
+          <div class="calc-field">
+            <label>Total das suas dívidas (MZN)</label>
+            <input type="number" id="calc-divida" placeholder="Ex: 25.000"/>
+          </div>
+          <div class="calc-field">
+            <label>Quanto consegue pagar por mês (MZN)</label>
+            <input type="number" id="calc-mensal" placeholder="Ex: 2.000"/>
+          </div>
+          <button class="calc-btn" id="calc-btn">Calcular o meu caminho →</button>
+          <div class="calc-result" id="calc-result">
+            <div class="calc-result-num" id="calc-num">—</div>
+            <div class="calc-result-label">meses estimados para ficar livre</div>
+            <div class="calc-result-msg" id="calc-msg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- GUARANTEE -->
+<section id="guarantee">
+  <div class="container">
+    <div class="guarantee-box">
+      <div class="guarantee-icon">🛡️</div>
+      <h2>Garantia de 7 Dias</h2>
+      <p>Se seguir as etapas e não sentir que o guia valeu cada metical, devolvemos 100% do valor. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="container">
+    <div class="eyebrow">Comece Hoje</div>
+    <h2>A dívida não desaparece sozinha.<br/>Mas existe um caminho.</h2>
+    <p>Cada dia sem um plano é mais um dia a pagar juros e a adiar a sua vida. Por menos do que uma refeição fora, tem o método completo.</p>
+    <div class="price-display">
+      <div><span class="currency">MZN</span><span class="amount">497</span></div>
+      <div class="label">Pagamento único · Acesso imediato</div>
+    </div>
+    <br/>
+    <a href="https://ratixpay.co.mz/checkout.html?produto=SEU-LINK-AQUI" target="_blank" class="btn-main" id="btn-final">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 10L10 18M2 10H18" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      Quero o meu plano para sair das dívidas
+    </a>
+    <div class="cta-trust">
+      <span>🔒 Pagamento seguro via Ratixpay</span>
+      <span>📄 Entrega imediata em PDF</span>
+      <span>🛡️ Garantia de 7 dias</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="eyebrow">Dúvidas</div>
+    <h2 style="color:var(--paper);margin-bottom:36px;">Perguntas frequentes</h2>
+    <div>
+      <div class="faq-item">
+        <h3>Como recebo o guia depois de pagar?</h3>
+        <p>Acesso automático e imediato após confirmação do pagamento — recebe o link de download do PDF directamente.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Funciona para qualquer nível de dívida?</h3>
+        <p>Sim. O método aplica-se tanto a quem tem uma dívida pequena como a quem enfrenta uma situação mais complexa.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Preciso de conhecimento financeiro prévio?</h3>
+        <p>Não. Linguagem simples e directa, sem jargão técnico — feito para qualquer pessoa, independentemente do nível de conhecimento.</p>
+      </div>
+      <div class="faq-item">
+        <h3>O conteúdo é adaptado a Moçambique?</h3>
+        <p>Sim. Exemplos, estratégias e referências têm em conta a realidade económica e financeira moçambicana.</p>
+      </div>
+      <div class="faq-item">
+        <h3>E se não funcionar para mim?</h3>
+        <p>Temos garantia de 7 dias — devolvemos 100% do valor, sem perguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/258XXXXXXXXX?text=Olá,%20tenho%20interesse%20no%20Guia%20Como%20Sair%20das%20Dívidas" target="_blank" class="wa-float" title="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <p><span class="brand">Liberdade Financeira MZ</span> &nbsp;·&nbsp; Como Sair das Dívidas — Guia Prático &nbsp;·&nbsp; © 2026</p>
+  <p style="margin-top:8px;">Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  document.getElementById('calc-btn').addEventListener('click',function(){
+    const d=parseFloat(document.getElementById('calc-divida').value);
+    const m=parseFloat(document.getElementById('calc-mensal').value);
+    const r=document.getElementById('calc-result');
+    const n=document.getElementById('calc-num');
+    const msg=document.getElementById('calc-msg');
+    if(!d||!m||d<=0||m<=0){
+      n.textContent='—';
+      msg.textContent='Preencha os dois campos com valores válidos.';
+      r.style.display='block';return;
+    }
+    const months=Math.ceil(d/m);
+    n.textContent=months;
+    if(months<=6) msg.textContent='Excelente! Está muito perto. O guia mostra como manter este ritmo e nunca voltar ao ciclo de dívidas.';
+    else if(months<=18) msg.textContent='Um caminho sólido e alcançável. O guia ensina como acelerar este prazo com negociação e estratégias de rendimento extra.';
+    else msg.textContent='É um caminho mais longo — mas com o método certo é perfeitamente possível reduzir este prazo a metade. É exactamente isso que o guia ensina.';
+    r.style.display='block';
+  });
+</script>
+</body>
+</html>
