@@ -390,16 +390,78 @@
 
     /* RESPONSIVE */
     @media(max-width:768px){
-      #hero{grid-template-columns:1fr;min-height:auto;}
-      .hero-left{padding:80px 24px 48px;}
-      .hero-right{height:320px;}
-      .hero-right::after{background:linear-gradient(to top,var(--bg) 0%,transparent 60%);}
+      /* HERO */
+      #hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+        display:flex;
+        flex-direction:column;
+      }
+      .hero-left{
+        padding:80px 24px 24px;
+        order:1;
+      }
+      .hero-right{
+        order:2;
+        padding:16px 24px 40px;
+        align-items:center;
+        justify-content:center;
+      }
+      .hero-right img{
+        max-width:100%;
+        width:100%;
+        object-fit:contain;
+        object-position:center;
+        max-height:420px;
+      }
+      .hero-right .btn-main{
+        max-width:100%;
+        font-size:0.9rem;
+        padding:14px 20px;
+        margin-top:16px;
+      }
+      #hero h1{font-size:2rem;}
+      .hero-sub{font-size:0.95rem;max-width:100%;}
+      .hero-trust{gap:12px;font-size:0.75rem;}
+
+      /* STATS */
       .stats-grid{grid-template-columns:1fr;}
-      .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);}
+      .stat-item{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,0.15);
+        padding:20px 16px;
+      }
+      .stat-num{font-size:1.8rem;}
+      .stat-label{font-size:0.75rem;}
+
+      /* PAIN */
       .pain-grid{grid-template-columns:1fr;}
+      .pain-card{padding:20px 16px;}
+
+      /* METHOD */
       .steps-grid{grid-template-columns:1fr;}
-      .calc-wrap{grid-template-columns:1fr;}
-      section{padding:64px 0;}
+      .step-card{padding:24px 20px;}
+      .step-num{font-size:2.4rem;}
+
+      /* CALCULATOR */
+      .calc-wrap{grid-template-columns:1fr;gap:28px;}
+      .calc-left h2{font-size:1.6rem;}
+
+      /* FAQ */
+      .faq-item{padding:18px 0;}
+
+      /* GENERAL */
+      section{padding:52px 0;}
+      h2{font-size:1.6rem;}
+      .container{padding:0 18px;}
+      .guarantee-box{padding:32px 20px;}
+      #cta-final{padding:80px 0;}
+      #cta-final h2{font-size:1.6rem;}
+      .price-display .amount{font-size:3rem;}
+      .cta-trust{gap:14px;font-size:0.78rem;}
+      .btn-main{font-size:0.9rem;padding:15px 24px;}
+      .nav-cta{font-size:0.75rem;padding:8px 14px;}
+      .bonus-box{flex-direction:column;}
     }
   </style>
 </head>
